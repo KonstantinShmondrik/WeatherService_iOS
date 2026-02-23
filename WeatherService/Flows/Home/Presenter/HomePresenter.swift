@@ -1,18 +1,30 @@
 //
-//  ViewController.swift
+//  HomePresenter.swift
 //  WeatherService
 //
-//  Created by Константин Шмондрик on 22.02.2026.
+//  Created by Константин Шмондрик on 23.02.2026.
 //
+
 
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+final class HomePresenter {
 
     private let requestFactory = RequestFactory()
+    private let locationService = LocationService()
 
-   private let moscowsCoordinate = Coordinate(latitude: 55.7558, longitude: 37.6173)
+    private let moscowsCoordinate = Coordinate(latitude: 55.7558, longitude: 37.6173)
+
+    private var isLoading = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.viewInput?.loading(self.isLoading)
+            }
+        }
+    }
+
+    weak var viewInput: HomeViewInput?
 
     private func getCurrentWeather(for coordinate: Coordinate) async throws -> WeatherResponse {
         let currentWeatherFactory = requestFactory.makeCurrentWeatherRequestFactory()
@@ -44,6 +56,12 @@ class ViewController: UIViewController {
 
     private func getWeather(for coordinate: Coordinate) {
         Task {
+            await MainActor.run {
+                self.isLoading = true
+            }
+
+            try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 сек
+
             do {
                 async let current = getCurrentWeather(for: coordinate)
                 async let forecast = getForecastWeather(for: coordinate)
@@ -55,25 +73,52 @@ class ViewController: UIViewController {
                     currentResponse: currentResponse,
                     forecastResponse: forecastResponse
                 )
+
                 await MainActor.run {
                     Logger.log("\(model)", level: .debug)
-    //                view?.showWeather(model)
-                    view.applyGradient(
-                        colors: model.current.colors,
-                        locations: view.gradientLocations(for: model.current.colors)
-                    )
+                    viewInput?.showWeather(model)
                 }
 
             } catch {
                 Logger.log("Loading sequence failed: \(error.localizedDescription)", level: .error)
-//                view?.showError(error.localizedDescription)
+                await MainActor.run {
+                    viewInput?.showErrorAlert(title: "Error", text: "Something went wrong")
+                }
+            }
+
+            await MainActor.run {
+                self.isLoading = false
             }
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+}
 
-        getWeather(for: moscowsCoordinate)
+extension HomePresenter: HomeViewOutput {
+
+    func getWeather() {
+        guard !isLoading else { return }
+        isLoading = true
+
+        DispatchQueue.main.async { [weak self] in
+            self?.locationService.getLocation { result in
+                guard let self else { return }
+                switch result {
+                case .success(let coordinates):
+                    self.getWeather(for: coordinates)
+                case .failure(let error):
+                    self.getWeather(for: self.moscowsCoordinate)
+                    if let locationError = error as? LocationError, locationError == .denied {
+                        self.viewInput?.showSettingsAlert(
+                            title: "Location Access Needed",
+                            text: "Location access is disabled. Enable it in Settings to see the weather for your current location."
+                        )
+                    } else {
+                        Logger.log("Location error: \(error.localizedDescription)", level: .error)
+                        self.viewInput?.showErrorAlert(title: "Error", text: "Something went wrong")
+                    }
+                }
+            }
+        }
     }
 }

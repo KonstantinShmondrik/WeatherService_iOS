@@ -76,4 +76,61 @@ extension UIView {
     func removeGradient() {
         layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
     }
+
+    func addBlur(
+        style: UIBlurEffect.Style = .systemUltraThinMaterialDark,
+        overlayColor: UIColor = .white.withAlphaComponent(0.2),
+        blurAlpha: CGFloat = 0.98
+    ) {
+        subviews
+            .filter { $0 is UIVisualEffectView }
+            .forEach { $0.removeFromSuperview() }
+
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.isUserInteractionEnabled = false
+        blurView.alpha = blurAlpha
+
+        let overlayView = UIView(frame: blurView.bounds)
+        overlayView.backgroundColor = overlayColor
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        overlayView.isUserInteractionEnabled = false
+
+        blurView.contentView.addSubview(overlayView)
+
+        addSubview(blurView)
+        sendSubviewToBack(blurView)
+    }
+
+    func addGlassEffect(cornerRadius: CGFloat, blurAlpha: CGFloat = 0.98) {
+        subviews
+            .filter { $0 is UIVisualEffectView }
+            .forEach { $0.removeFromSuperview() }
+
+        let blurEffect = UIBlurEffect(style: .systemThinMaterialDark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.isUserInteractionEnabled = false
+
+        blurView.layer.cornerRadius = cornerRadius
+        blurView.layer.masksToBounds = true
+        blurView.alpha = blurAlpha
+
+        let tintView = UIView(frame: blurView.bounds)
+        tintView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tintView.backgroundColor = UIColor(hex: "#204549").withAlphaComponent(0.05)
+        tintView.isUserInteractionEnabled = false
+
+        blurView.contentView.addSubview(tintView)
+
+        addSubview(blurView)
+        sendSubviewToBack(blurView)
+
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(hex: "#2BBFB0").withAlphaComponent(0.2).cgColor
+    }
 }
