@@ -11,7 +11,7 @@ import UIKit
 class HomeBuilder {
 
     static func build() -> (UIViewController & HomeViewInput) {
-        let presenter = HomePresenter()
+        let presenter = HomePresenter(requestFactory: RequestFactory(), locationService: LocationService())
         let viewController = HomeViewController(presenter: presenter)
 
         presenter.viewInput = viewController

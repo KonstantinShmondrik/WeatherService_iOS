@@ -11,8 +11,8 @@ import Alamofire
 
 final class HomePresenter {
 
-    private let requestFactory = RequestFactory()
-    private let locationService = LocationService()
+    var requestFactory: RequestFactoryProtocol
+    var locationService: LocationServiceProtocol
 
     private let moscowsCoordinate = Coordinate(latitude: 55.7558, longitude: 37.6173)
 
@@ -25,6 +25,13 @@ final class HomePresenter {
     }
 
     weak var viewInput: HomeViewInput?
+
+    init(requestFactory: RequestFactoryProtocol,
+         locationService: LocationServiceProtocol
+    ) {
+        self.requestFactory = requestFactory
+        self.locationService = locationService
+    }
 
     private func getCurrentWeather(for coordinate: Coordinate) async throws -> WeatherResponse {
         let currentWeatherFactory = requestFactory.makeCurrentWeatherRequestFactory()
@@ -103,7 +110,6 @@ final class HomePresenter {
             }
         }
     }
-
 }
 
 extension HomePresenter: HomeViewOutput {

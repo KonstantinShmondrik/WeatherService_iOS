@@ -307,3 +307,124 @@ struct Hour: Codable {
         case uv
     }
 }
+
+extension WeatherResponse {
+
+    static func stub() -> WeatherResponse {
+        let condition = Condition(text: "Sunny", icon: nil, code: 1000)
+
+        let current = Current(
+            lastUpdatedEpoch: 0,
+            lastUpdated: "2026-02-24 12:00",
+            tempC: 20,
+            tempF: 68,
+            isDay: 1,
+            condition: condition,
+            windMph: 5,
+            windKph: 8,
+            windDegree: 180,
+            windDir: "S",
+            pressureMB: 1015,
+            pressureIn: 30,
+            precipMm: 0,
+            precipIn: 0,
+            humidity: 50,
+            cloud: 0,
+            feelslikeC: 20,
+            feelslikeF: 68,
+            windchillC: 20,
+            windchillF: 68,
+            heatindexC: 20,
+            heatindexF: 68,
+            dewpointC: 10,
+            dewpointF: 50,
+            visKM: 10,
+            visMiles: 6,
+            uv: 5,
+            gustMph: 7,
+            gustKph: 11
+        )
+
+        let location = Location(
+            name: "Moscow",
+            region: "Moscow",
+            country: "Russia",
+            lat: 55.7558,
+            lon: 37.6173,
+            tzID: "Europe/Moscow",
+            localtimeEpoch: 0,
+            localtime: "2026-02-24 12:00"
+        )
+
+        let hour = Hour(
+            timeEpoch: 0,
+            time: "12:00",
+            tempC: 20,
+            tempF: 68,
+            isDay: 1,
+            condition: condition,
+            windMph: 5,
+            windKph: 8,
+            windDegree: 180,
+            windDir: "S",
+            pressureMB: 1015,
+            pressureIn: 30,
+            precipMm: 0,
+            precipIn: 0,
+            humidity: 50,
+            cloud: 0,
+            feelslikeC: 20,
+            feelslikeF: 68,
+            windchillC: 20,
+            windchillF: 68,
+            heatindexC: 20,
+            heatindexF: 68,
+            dewpointC: 10,
+            dewpointF: 50,
+            willItRain: 0,
+            chanceOfRain: 0,
+            willItSnow: 0,
+            chanceOfSnow: 0,
+            visKM: 10,
+            visMiles: 6,
+            gustMph: 7,
+            gustKph: 11,
+            uv: 5
+        )
+
+        let day = Day(
+            maxtempC: 25,
+            maxtempF: 77,
+            mintempC: 15,
+            mintempF: 59,
+            avgtempC: 20,
+            avgtempF: 68,
+            maxwindMph: 10,
+            maxwindKph: 16,
+            totalprecipMm: 0,
+            totalprecipIn: 0,
+            totalsnowCM: 0,
+            avgvisKM: 10,
+            avgvisMiles: 6,
+            avghumidity: 50,
+            dailyWillItRain: 0,
+            dailyChanceOfRain: 0,
+            dailyWillItSnow: 0,
+            dailyChanceOfSnow: 0,
+            condition: condition,
+            uv: 5
+        )
+
+        let forecastDay = ForecastDay(
+            date: "2026-02-24",
+            dateEpoch: 0,
+            day: day,
+            astro: nil,
+            hour: [hour]
+        )
+
+        let forecast = Forecast(forecastday: [forecastDay])
+
+        return WeatherResponse(location: location, current: current, forecast: forecast)
+    }
+}

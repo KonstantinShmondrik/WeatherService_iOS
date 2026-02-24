@@ -9,7 +9,13 @@
 import Foundation
 import Alamofire
 
-class RequestFactory {
+protocol RequestFactoryProtocol: AnyObject {
+
+    func makeCurrentWeatherRequestFactory() -> CurrentWeatherServiceProtocol
+    func makeForecastWeatherRequestFactory() -> ForecastWeatherServiceProtocol
+}
+
+class RequestFactory: RequestFactoryProtocol {
 
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
