@@ -92,13 +92,13 @@ extension HomeViewController {
     private func dailyLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(90)
+            heightDimension: .estimated(ScreenInfo.current.type == .large ? 68 : 64)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(90)
+            heightDimension: .estimated(ScreenInfo.current.type == .large ? 68 : 64)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 

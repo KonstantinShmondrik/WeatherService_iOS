@@ -49,9 +49,8 @@ class DailyViewCell: UICollectionViewCell {
         }
 
         iconImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.center.equalToSuperview()
             make.height.width.equalTo(screenInfo.type == .large ? 52 : 48)
-            make.top.bottom.equalToSuperview().inset(8)
         }
 
         minMaxTemperatureLabel.snp.makeConstraints { make in

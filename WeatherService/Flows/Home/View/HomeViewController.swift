@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
+    private let refreshControl = UIRefreshControl()
 
     var sections: [HomeSections] = [] {
         didSet {
@@ -70,7 +71,6 @@ class HomeViewController: UIViewController {
 
         collectionView.backgroundColor = .clear
         collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.alwaysBounceVertical = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
@@ -82,6 +82,18 @@ class HomeViewController: UIViewController {
         collectionView.register(CarnetViewCell.self)
         collectionView.register(HourlyViewCell.self)
         collectionView.register(DailyViewCell.self)
+
+        setupRefreshControl()
+    }
+
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        refreshControl.tintColor = .white
+        collectionView.refreshControl = refreshControl
+    }
+
+    @objc private func handleRefresh() {
+        presenter.getWeather()
     }
 }
 
@@ -151,6 +163,8 @@ extension HomeViewController: HomeViewInput {
             colors: colors,
             locations: view.gradientLocations(for: colors)
         )
+
+        refreshControl.endRefreshing()
     }
 
     func showErrorAlert(title: String, text: String) {
