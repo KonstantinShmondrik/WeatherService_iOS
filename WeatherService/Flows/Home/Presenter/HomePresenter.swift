@@ -94,7 +94,7 @@ final class HomePresenter {
             } catch {
                 Logger.log("Loading sequence failed: \(error.localizedDescription)", level: .error)
                 await MainActor.run {
-                    viewInput?.showErrorAlert(title: "Error", text: "Something went wrong")
+                    viewInput?.showErrorAlert(title: "alert.error.title".localized, text: "alert.error.message".localized)
                 }
             }
 
@@ -122,8 +122,8 @@ extension HomePresenter: HomeViewOutput {
                     self.getWeather(for: self.moscowsCoordinate)
                     if let locationError = error as? LocationError, locationError == .denied {
                         self.viewInput?.showSettingsAlert(
-                            title: "Location Access Needed",
-                            text: "Location access is disabled. Enable it in Settings to see the weather for your current location."
+                            title: "alert.settings.title".localized,
+                            text: "alert.settings.message".localized
                         )
                     } else {
                         Logger.log("Location error: \(error.localizedDescription)", level: .error)

@@ -55,6 +55,7 @@
 		005701392F4D1C6100138DEB /* SectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701382F4D1C6100138DEB /* SectionBackgroundView.swift */; };
 		0057013B2F4D1EED00138DEB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013A2F4D1EED00138DEB /* ImageLoader.swift */; };
 		0057013D2F4D240400138DEB /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013C2F4D23F200138DEB /* DailyViewCell.swift */; };
+		0057013F2F4DF4C800138DEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0057013E2F4DF4C800138DEB /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,6 +119,7 @@
 		005701382F4D1C6100138DEB /* SectionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundView.swift; sourceTree = "<group>"; };
 		0057013A2F4D1EED00138DEB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0057013C2F4D23F200138DEB /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
+		0057013E2F4DF4C800138DEB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0083AC012F4B3E8400AFA8E7 /* WeatherService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				005700B52F4B40CF00138DEB /* Assets.xcassets */,
 				005700B62F4B40CF00138DEB /* Info.plist */,
 				005700B82F4B40CF00138DEB /* LaunchScreen.storyboard */,
+				0057013E2F4DF4C800138DEB /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				005700BE2F4B40CF00138DEB /* Assets.xcassets in Resources */,
 				005700C02F4B40CF00138DEB /* LaunchScreen.storyboard in Resources */,
+				0057013F2F4DF4C800138DEB /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +665,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -718,6 +723,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

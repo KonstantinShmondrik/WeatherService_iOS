@@ -168,22 +168,22 @@ extension HomeViewController: HomeViewInput {
     }
 
     func showErrorAlert(title: String, text: String) {
-        let tryAgainAction = UIAlertAction(title: "Try again", style: .default) { [weak self] _ in
+        let tryAgainAction = UIAlertAction(title: "alert.TryAgain".localized, style: .default) { [weak self] _ in
             self?.presenter.getWeather()
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "alert.Cancel".localized, style: .cancel)
         DispatchQueue.main.async { [weak self] in
             self?.setAlert(title: title, message: text, actions: [tryAgainAction, cancelAction])
         }
     }
 
     func showSettingsAlert(title: String, text: String) {
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { [weak self] _ in
+        let settingsAction = UIAlertAction(title: "alert.Settings".localized, style: .default) { [weak self] _ in
             self?.goToSettings()
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "alert.Cancel".localized, style: .cancel)
         DispatchQueue.main.async { [weak self] in
             self?.setAlert(title: title, message: text, actions: [settingsAction, cancelAction])
         }
