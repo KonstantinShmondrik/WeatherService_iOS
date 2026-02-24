@@ -39,7 +39,7 @@ class LoadingView: UIView {
 
         addBlur()
         activityIndicatorView.startAnimating()
-        titleLabel.text = "Loading...".localized
+        titleLabel.text = "loading".localized
         titleLabel.font = AppFont.Style.font_600_22
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center

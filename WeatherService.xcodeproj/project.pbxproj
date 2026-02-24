@@ -56,6 +56,7 @@
 		0057013B2F4D1EED00138DEB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013A2F4D1EED00138DEB /* ImageLoader.swift */; };
 		0057013D2F4D240400138DEB /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013C2F4D23F200138DEB /* DailyViewCell.swift */; };
 		0057013F2F4DF4C800138DEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0057013E2F4DF4C800138DEB /* Localizable.xcstrings */; };
+		005701562F4E30B100138DEB /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701542F4E30B100138DEB /* WeatherServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,16 +132,9 @@
 		0057013C2F4D23F200138DEB /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
 		0057013E2F4DF4C800138DEB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		005701472F4E12DA00138DEB /* WeatherServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		005701542F4E30B100138DEB /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
 		0083AC012F4B3E8400AFA8E7 /* WeatherService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		005701482F4E12DA00138DEB /* WeatherServiceTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WeatherServiceTests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		005701442F4E12DA00138DEB /* Frameworks */ = {
@@ -393,9 +387,10 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		005701402F4E10F900138DEB /* WeatherServiceTests */ = {
+		005701552F4E30B100138DEB /* WeatherServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				005701542F4E30B100138DEB /* WeatherServiceTests.swift */,
 			);
 			path = WeatherServiceTests;
 			sourceTree = "<group>";
@@ -404,8 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				005700BD2F4B40CF00138DEB /* WeatherService */,
-				005701402F4E10F900138DEB /* WeatherServiceTests */,
-				005701482F4E12DA00138DEB /* WeatherServiceTests */,
+				005701552F4E30B100138DEB /* WeatherServiceTests */,
 				0083AC022F4B3E8400AFA8E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -434,9 +428,6 @@
 			);
 			dependencies = (
 				0057014C2F4E12DA00138DEB /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				005701482F4E12DA00138DEB /* WeatherServiceTests */,
 			);
 			name = WeatherServiceTests;
 			packageProductDependencies = (
@@ -535,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005701562F4E30B100138DEB /* WeatherServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

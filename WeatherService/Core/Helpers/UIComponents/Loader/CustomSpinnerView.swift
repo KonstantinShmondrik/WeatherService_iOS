@@ -45,7 +45,6 @@ class CustomSpinnerView: UIView {
         let angle = (2 * CGFloat.pi) / CGFloat(instanceCount)
         replicatorLayer.instanceTransform = CATransform3DMakeRotation(angle, 0, 0, 1)
 
-        // плавное затухание лепестков
         replicatorLayer.instanceAlphaOffset = -1.0 / Float(instanceCount)
 
         startAnimating()

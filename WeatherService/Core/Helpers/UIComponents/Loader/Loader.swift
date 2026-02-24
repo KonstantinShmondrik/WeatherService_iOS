@@ -15,25 +15,9 @@ final class Loader {
 
     private init() {}
 
-//    func show() {
-//        guard let windowScene = UIApplication.shared.connectedScenes
-//            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
-//              let window = windowScene.windows.first else {
-//            return
-//        }
-//
-//        loadingView.frame = window.bounds
-//        window.addSubview(loadingView)
-//        loadingView.startAnimating()
-//    }
-//
-//    func hide() {
-//        loadingView.removeFromSuperview()
-//    }
-
     func show() {
         guard let windowScene = UIApplication.shared.connectedScenes
-                .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
               let window = windowScene.windows.first else { return }
 
         loadingView.frame = window.bounds

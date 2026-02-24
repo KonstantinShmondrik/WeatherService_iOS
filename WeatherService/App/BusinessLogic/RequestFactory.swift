@@ -49,6 +49,4 @@ class RequestFactory: RequestFactoryProtocol {
                            sessionManager: commonSession,
                            queue: sessionQueue)
     }
-
-
 }

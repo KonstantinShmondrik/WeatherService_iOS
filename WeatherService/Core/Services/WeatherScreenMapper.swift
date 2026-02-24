@@ -138,7 +138,7 @@ private extension WeatherScreenMapper {
         formatter.dateFormat = "yyyy-MM-dd"
 
         guard let date = formatter.date(from: dateString) else { return "" }
-
+        
         if Calendar.current.isDateInToday(date) {
             return "Today"
         }
