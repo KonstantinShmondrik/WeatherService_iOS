@@ -21,7 +21,7 @@ struct CurrentWeatherUIModel {
 
     let temperature: String          // "18°"
     let conditionText: String        // "Cloudy"
-    let conditionIconURL: URL?
+    let conditionIconURL: String?
     let minMaxTemperature: String    // "H: 21°  L: 12°"
     let isDay: Bool
     let conditionCode: Int
@@ -112,14 +112,14 @@ struct HourlyWeatherUIModel {
     let isDay: Bool
     let time: String                 // "15:00"
     let temperature: String          // "17°"
-    let iconURL: URL?
+    let iconURL: String?
     let isNow: Bool                  // для выделения текущего часа
 }
 
 struct DailyWeatherUIModel {
 
     let dayTitle: String             // "Mon"
-    let iconURL: URL?
+    let iconURL: String?
     let minTemperature: String       // "12°"
     let maxTemperature: String       // "21°"
 }

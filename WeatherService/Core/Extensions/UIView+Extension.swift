@@ -121,7 +121,6 @@ extension UIView {
 
         let tintView = UIView(frame: blurView.bounds)
         tintView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tintView.backgroundColor = UIColor(hex: "#204549").withAlphaComponent(0.05)
         tintView.isUserInteractionEnabled = false
 
         blurView.contentView.addSubview(tintView)
@@ -131,6 +130,6 @@ extension UIView {
 
         layer.cornerRadius = cornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor(hex: "#2BBFB0").withAlphaComponent(0.2).cgColor
+        layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
     }
 }

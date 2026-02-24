@@ -53,7 +53,7 @@ private extension WeatherScreenMapper {
         return CurrentWeatherUIModel(
             temperature: "\(temp)°",
             conditionText: current?.condition?.text ?? "",
-            conditionIconURL: iconURL,
+            conditionIconURL: iconURL?.absoluteString,
             minMaxTemperature: "H: \(maxTemp)°  L: \(minTemp)°",
             isDay: current?.isDay == 1,
             conditionCode: current?.condition?.code ?? 0,
@@ -98,7 +98,7 @@ private extension WeatherScreenMapper {
                 isDay: hour.isDay == 1,
                 time: timeString,
                 temperature: "\(temp)°",
-                iconURL: iconURL,
+                iconURL: iconURL?.absoluteString,
                 isNow: (hour.timeEpoch == now)
             )
         }
@@ -123,7 +123,7 @@ private extension WeatherScreenMapper {
 
             return DailyWeatherUIModel(
                 dayTitle: title,
-                iconURL: iconURL,
+                iconURL: iconURL?.absoluteString,
                 minTemperature: "\(min)°",
                 maxTemperature: "\(max)°"
             )

@@ -18,4 +18,21 @@ extension String {
         }
         return NSLocalizedString(self, tableName: nil, bundle: bundle, comment: "")
     }
+
+    func colorized(phrases: [String: UIColor]) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+
+        for (phrase, color) in phrases {
+            var searchRange = self.startIndex..<self.endIndex
+
+            while let range = self.range(of: phrase, options: .caseInsensitive, range: searchRange) {
+                let nsRange = NSRange(range, in: self)
+                attributedString.addAttribute(.foregroundColor, value: color, range: nsRange)
+
+                searchRange = range.upperBound..<self.endIndex
+            }
+        }
+
+        return attributedString
+    }
 }

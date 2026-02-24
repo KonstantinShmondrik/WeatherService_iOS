@@ -48,6 +48,13 @@
 		005701292F4CABF200138DEB /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701282F4CABF200138DEB /* Loader.swift */; };
 		0057012C2F4CAD2F00138DEB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057012B2F4CAD2E00138DEB /* String+Extension.swift */; };
 		0057012E2F4CCF5D00138DEB /* UICollectionView+Extansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057012D2F4CCF5B00138DEB /* UICollectionView+Extansion.swift */; };
+		005701312F4CD0A300138DEB /* HomeViewController+CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701302F4CD09600138DEB /* HomeViewController+CompositionalLayout.swift */; };
+		005701332F4CD1A400138DEB /* HomeSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701322F4CD19C00138DEB /* HomeSections.swift */; };
+		005701352F4D0ABF00138DEB /* CarnetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701342F4D0ABF00138DEB /* CarnetViewCell.swift */; };
+		005701372F4D169400138DEB /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701362F4D168300138DEB /* HourlyViewCell.swift */; };
+		005701392F4D1C6100138DEB /* SectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005701382F4D1C6100138DEB /* SectionBackgroundView.swift */; };
+		0057013B2F4D1EED00138DEB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013A2F4D1EED00138DEB /* ImageLoader.swift */; };
+		0057013D2F4D240400138DEB /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057013C2F4D23F200138DEB /* DailyViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +111,13 @@
 		005701282F4CABF200138DEB /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		0057012B2F4CAD2E00138DEB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		0057012D2F4CCF5B00138DEB /* UICollectionView+Extansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extansion.swift"; sourceTree = "<group>"; };
+		005701302F4CD09600138DEB /* HomeViewController+CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CompositionalLayout.swift"; sourceTree = "<group>"; };
+		005701322F4CD19C00138DEB /* HomeSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSections.swift; sourceTree = "<group>"; };
+		005701342F4D0ABF00138DEB /* CarnetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarnetViewCell.swift; sourceTree = "<group>"; };
+		005701362F4D168300138DEB /* HourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewCell.swift; sourceTree = "<group>"; };
+		005701382F4D1C6100138DEB /* SectionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundView.swift; sourceTree = "<group>"; };
+		0057013A2F4D1EED00138DEB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		0057013C2F4D23F200138DEB /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
 		0083AC012F4B3E8400AFA8E7 /* WeatherService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -202,6 +216,7 @@
 		005700CC2F4B432200138DEB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0057013A2F4D1EED00138DEB /* ImageLoader.swift */,
 				005701202F4C8AE700138DEB /* LocationService.swift */,
 				005701112F4BBBDC00138DEB /* WeatherScreenMapper.swift */,
 				0057010B2F4BB2D900138DEB /* WeatherType.swift */,
@@ -294,6 +309,7 @@
 		005700FD2F4B8D3C00138DEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				005701322F4CD19C00138DEB /* HomeSections.swift */,
 				005701072F4BAD1600138DEB /* WeatherModel.swift */,
 			);
 			path = Models;
@@ -305,6 +321,8 @@
 				0057011A2F4C80A500138DEB /* HomeViewInput.swift */,
 				0057011C2F4C80AF00138DEB /* HomeViewOutput.swift */,
 				0057011E2F4C80D400138DEB /* HomeViewController.swift */,
+				005701302F4CD09600138DEB /* HomeViewController+CompositionalLayout.swift */,
+				0057012F2F4CD07F00138DEB /* Utils */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +351,17 @@
 				005701242F4CABDC00138DEB /* LoadingView.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		0057012F2F4CD07F00138DEB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				005701382F4D1C6100138DEB /* SectionBackgroundView.swift */,
+				005701342F4D0ABF00138DEB /* CarnetViewCell.swift */,
+				005701362F4D168300138DEB /* HourlyViewCell.swift */,
+				0057013C2F4D23F200138DEB /* DailyViewCell.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		0083ABF82F4B3E8300AFA8E7 = {
@@ -434,6 +463,7 @@
 				005701232F4C9EDB00138DEB /* UIViewController+Extension.swift in Sources */,
 				005701272F4CABE700138DEB /* CustomSpinnerView.swift in Sources */,
 				0057010A2F4BB10400138DEB /* UIView+Extension.swift in Sources */,
+				005701312F4CD0A300138DEB /* HomeViewController+CompositionalLayout.swift in Sources */,
 				005701102F4BB98E00138DEB /* WeatherTypeMapper.swift in Sources */,
 				0057011F2F4C80D400138DEB /* HomeViewController.swift in Sources */,
 				0057012E2F4CCF5D00138DEB /* UICollectionView+Extansion.swift in Sources */,
@@ -452,11 +482,13 @@
 				005700DC2F4B5FB700138DEB /* AppFont.swift in Sources */,
 				005700E02F4B5FD300138DEB /* LogLevel.swift in Sources */,
 				005701292F4CABF200138DEB /* Loader.swift in Sources */,
+				005701332F4CD1A400138DEB /* HomeSections.swift in Sources */,
 				005700EF2F4B60C700138DEB /* AbstractRequestFactory.swift in Sources */,
 				005700DE2F4B5FC700138DEB /* ScreenType.swift in Sources */,
 				005701172F4C802A00138DEB /* HomeBuilder.swift in Sources */,
 				005701002F4B8D5700138DEB /* Coordinate.swift in Sources */,
 				005700ED2F4B60BA00138DEB /* CustomDecodableSerializer.swift in Sources */,
+				0057013B2F4D1EED00138DEB /* ImageLoader.swift in Sources */,
 				005701082F4BAD1700138DEB /* WeatherModel.swift in Sources */,
 				005700C22F4B40CF00138DEB /* AppDelegate.swift in Sources */,
 				005700F12F4B615700138DEB /* Locale+Extension.swift in Sources */,
@@ -464,10 +496,14 @@
 				0057011B2F4C80A500138DEB /* HomeViewInput.swift in Sources */,
 				005700E52F4B604100138DEB /* ErrorParser.swift in Sources */,
 				0057010E2F4BB41700138DEB /* UIColor+Extansion.swift in Sources */,
+				0057013D2F4D240400138DEB /* DailyViewCell.swift in Sources */,
 				005700F32F4B621C00138DEB /* Endpoints.swift in Sources */,
 				005700C32F4B40CF00138DEB /* SceneDelegate.swift in Sources */,
 				005700E72F4B604B00138DEB /* AbstractErrorParser.swift in Sources */,
+				005701392F4D1C6100138DEB /* SectionBackgroundView.swift in Sources */,
 				005701212F4C8AE700138DEB /* LocationService.swift in Sources */,
+				005701372F4D169400138DEB /* HourlyViewCell.swift in Sources */,
+				005701352F4D0ABF00138DEB /* CarnetViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

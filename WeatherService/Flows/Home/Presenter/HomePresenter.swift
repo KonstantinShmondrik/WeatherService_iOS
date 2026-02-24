@@ -74,9 +74,21 @@ final class HomePresenter {
                     forecastResponse: forecastResponse
                 )
 
+                let sections: [HomeSections] = [
+                    HomeSections(
+                        id: .carnet(city: model.city, current: model.current),
+                        title: model.city,
+                        subtitle: model.current.temperature,
+                        description: model.current.conditionText,
+                        additional: model.current.minMaxTemperature
+                    ),
+                    HomeSections(id: .hourly(items: model.hourly)),
+                    HomeSections(id: .daily(items: model.daily))
+                ]
+
                 await MainActor.run {
                     Logger.log("\(model)", level: .debug)
-                    viewInput?.showWeather(model)
+                    viewInput?.showWeather(sections, colors: model.current.colors)
                 }
 
             } catch {
